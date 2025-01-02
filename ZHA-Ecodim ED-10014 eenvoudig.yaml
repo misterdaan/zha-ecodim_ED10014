@@ -1,0 +1,277 @@
+blueprint:
+  name: ZHA - Ecodim ED-10014 eenvoudig
+  description: Nieuwe controle voor de EcoDim ED-10014 - eenvoudige versie.
+
+  domain: automation
+  input:
+    remote1:
+      name: Apparaat
+      description: Het apparaat dat gebruikt moet worden
+      default:
+      selector:
+        device:
+          integration: zha
+          manufacturer: EcoDim
+          model: ED-10014
+    #          multiple: false
+
+    # lights:
+    #   name: Lights
+    #   description: Lights to control when using default light actions
+    #   default:
+    #     entity_id: none
+    #   selector:
+    #     target:
+    #       entity:
+    #         domain: light
+
+    #1e RIJ KNOPPEN
+    button_on_short_1:
+      name: AAN-knop rij 1 kort indrukken
+      description: Actie bij het kort indrukken van de AAN-knop op rij 1
+      default: []
+      selector:
+        action: {}
+    button_off_short_1:
+      name: UIT-knop rij 1 kort indrukken
+      description: Actie bij het kort indrukken van de UIT-knop op rij 1
+      default: []
+      selector:
+        action: {}
+    button_on_long_1:
+      name: AAN-knop rij 1 lang indrukken
+      description: Actie bij het lang indrukken van de AAN-knop op rij 1
+      default: []
+      selector:
+        action: {}
+    button_off_long_1:
+      name: UIT-knop rij 1 kort indrukken
+      description: Actie bij het lang indrukken van de UIT-knop op rij 1
+      default: []
+      selector:
+        action: {}
+    #2e RIJ KNOPPEN
+    button_on_short_2:
+      name: AAN-knop rij 2 kort indrukken
+      description: Actie bij het kort indrukken van de AAN-knop op rij 2
+      default: []
+      selector:
+        action: {}
+    button_off_short_2:
+      name: UIT-knop rij 2 kort indrukken
+      description: Actie bij het kort indrukken van de UIT-knop op rij 2
+      default: []
+      selector:
+        action: {}
+    button_on_long_2:
+      name: AAN-knop rij 2 lang indrukken
+      description: Actie bij het lang indrukken van de AAN-knop op rij 2
+      default: []
+      selector:
+        action: {}
+    button_off_long_2:
+      name: UIT-knop rij 2 kort indrukken
+      description: Actie bij het lang indrukken van de UIT-knop op rij 2
+      default: []
+      selector:
+        action: {}
+    #3e RIJ KNOPPEN
+    button_on_short_3:
+      name: AAN-knop rij 3 kort indrukken
+      description: Actie bij het kort indrukken van de AAN-knop op rij 3
+      default: []
+      selector:
+        action: {}
+    button_off_short_3:
+      name: UIT-knop rij 3 kort indrukken
+      description: Actie bij het kort indrukken van de UIT-knop op rij 3
+      default: []
+      selector:
+        action: {}
+    button_on_long_3:
+      name: AAN-knop rij 3 lang indrukken
+      description: Actie bij het lang indrukken van de AAN-knop op rij 3
+      default: []
+      selector:
+        action: {}
+    button_off_long_3:
+      name: UIT-knop rij 3 kort indrukken
+      description: Actie bij het lang indrukken van de UIT-knop op rij 3
+      default: []
+      selector:
+        action: {}
+    #4e RIJ KNOPPEN
+    button_on_short_4:
+      name: AAN-knop rij 4 kort indrukken
+      description: Actie bij het kort indrukken van de AAN-knop op rij 4
+      default: []
+      selector:
+        action: {}
+    button_off_short_4:
+      name: UIT-knop rij 4 kort indrukken
+      description: Actie bij het kort indrukken van de UIT-knop op rij 4
+      default: []
+      selector:
+        action: {}
+    button_on_long_4:
+      name: AAN-knop rij 4 lang indrukken
+      description: Actie bij het lang indrukken van de AAN-knop op rij 4
+      default: []
+      selector:
+        action: {}
+    button_off_long_4:
+      name: UIT-knop rij 4 kort indrukken
+      description: Actie bij het lang indrukken van de UIT-knop op rij 4
+      default: []
+      selector:
+        action: {}
+
+  source_url: https://community.home-assistant.io/t/zha-ikea-tradfri-wireless-dimmer-with-options-for-custom-actions/294350
+trigger:
+  - platform: event
+    event_type: zha_event
+    event_data:
+      device_id: !input "remote1"
+mode: restart
+action:
+  - variables:
+      command: "{{ trigger.event.data.command }}"
+      cluster_id: "{{ trigger.event.data.cluster_id }}"
+      endpoint_id: "{{ trigger.event.data.endpoint_id }}"
+      args: "{{ trigger.event.data.args }}"
+
+  #Acties rij 1
+  - choose:
+      - conditions:
+          - "{{ command == 'on' }}"
+          - "{{ cluster_id == 6 }}"
+          - "{{ endpoint_id == 1 }}"
+        sequence:
+          - !input "button_on_short_1"
+
+      - conditions:
+          - "{{ command == 'off' }}"
+          - "{{ cluster_id == 6 }}"
+          - "{{ endpoint_id == 1 }}"
+        sequence:
+          - !input "button_off_short_1"
+
+      - conditions:
+          - "{{ command == 'move_with_on_off' }}"
+          - "{{ cluster_id == 8 }}"
+          - "{{ endpoint_id == 1 }}"
+          - "{{ trigger.event.data.args[0] == 0 }}"
+          - "{{ trigger.event.data.args[1] == 50 }}"
+        sequence:
+          - !input "button_on_long_1"
+
+      - conditions:
+          - "{{ command == 'move_with_on_off' }}"
+          - "{{ cluster_id == 8 }}"
+          - "{{ endpoint_id == 1 }}"
+          - "{{ trigger.event.data.args[0] == 1 }}"
+          - "{{ trigger.event.data.args[1] == 50 }}"
+        sequence:
+          - !input "button_off_long_1"
+
+  #Acties rij 2
+  - choose:
+      - conditions:
+          - "{{ command == 'on' }}"
+          - "{{ cluster_id == 6 }}"
+          - "{{ endpoint_id == 1 }}"
+        sequence:
+          - !input "button_on_short_2"
+
+      - conditions:
+          - "{{ command == 'off' }}"
+          - "{{ cluster_id == 6 }}"
+          - "{{ endpoint_id == 1 }}"
+        sequence:
+          - !input "button_off_short_2"
+
+      - conditions:
+          - "{{ command == 'move_with_on_off' }}"
+          - "{{ cluster_id == 8 }}"
+          - "{{ endpoint_id == 1 }}"
+          - "{{ trigger.event.data.args[0] == 0 }}"
+          - "{{ trigger.event.data.args[1] == 50 }}"
+        sequence:
+          - !input "button_on_long_2"
+
+      - conditions:
+          - "{{ command == 'move_with_on_off' }}"
+          - "{{ cluster_id == 8 }}"
+          - "{{ endpoint_id == 1 }}"
+          - "{{ trigger.event.data.args[0] == 1 }}"
+          - "{{ trigger.event.data.args[1] == 50 }}"
+        sequence:
+          - !input "button_off_long_2"
+
+  #Acties rij 3
+  - choose:
+      - conditions:
+          - "{{ command == 'on' }}"
+          - "{{ cluster_id == 6 }}"
+          - "{{ endpoint_id == 1 }}"
+        sequence:
+          - !input "button_on_short_3"
+
+      - conditions:
+          - "{{ command == 'off' }}"
+          - "{{ cluster_id == 6 }}"
+          - "{{ endpoint_id == 1 }}"
+        sequence:
+          - !input "button_off_short_3"
+
+      - conditions:
+          - "{{ command == 'move_with_on_off' }}"
+          - "{{ cluster_id == 8 }}"
+          - "{{ endpoint_id == 1 }}"
+          - "{{ trigger.event.data.args[0] == 0 }}"
+          - "{{ trigger.event.data.args[1] == 50 }}"
+        sequence:
+          - !input "button_on_long_3"
+
+      - conditions:
+          - "{{ command == 'move_with_on_off' }}"
+          - "{{ cluster_id == 8 }}"
+          - "{{ endpoint_id == 1 }}"
+          - "{{ trigger.event.data.args[0] == 1 }}"
+          - "{{ trigger.event.data.args[1] == 50 }}"
+        sequence:
+          - !input "button_off_long_3"
+
+  #Acties rij 4
+  - choose:
+      - conditions:
+          - "{{ command == 'on' }}"
+          - "{{ cluster_id == 6 }}"
+          - "{{ endpoint_id == 1 }}"
+        sequence:
+          - !input "button_on_short_4"
+
+      - conditions:
+          - "{{ command == 'off' }}"
+          - "{{ cluster_id == 6 }}"
+          - "{{ endpoint_id == 1 }}"
+        sequence:
+          - !input "button_off_short_4"
+
+      - conditions:
+          - "{{ command == 'move_with_on_off' }}"
+          - "{{ cluster_id == 8 }}"
+          - "{{ endpoint_id == 1 }}"
+          - "{{ trigger.event.data.args[0] == 0 }}"
+          - "{{ trigger.event.data.args[1] == 50 }}"
+        sequence:
+          - !input "button_on_long_4"
+
+      - conditions:
+          - "{{ command == 'move_with_on_off' }}"
+          - "{{ cluster_id == 8 }}"
+          - "{{ endpoint_id == 1 }}"
+          - "{{ trigger.event.data.args[0] == 1 }}"
+          - "{{ trigger.event.data.args[1] == 50 }}"
+        sequence:
+          - !input "button_off_long_4"
