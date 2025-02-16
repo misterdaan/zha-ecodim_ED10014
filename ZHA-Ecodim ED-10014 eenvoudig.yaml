@@ -268,3 +268,5 @@ action:
           - '{{ trigger.event.data.args[0] == 1 }}'
           - '{{ trigger.event.data.args[1] == 50 }}'
         sequence: !input 'button_off_long_4'
+      
+    default: []
