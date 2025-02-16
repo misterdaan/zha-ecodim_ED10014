@@ -140,16 +140,14 @@ action:
           - '{{ command == ''on'' }}'
           - '{{ cluster_id == 6 }}'
           - '{{ endpoint_id == 1 }}'
-        sequence:
-          - !input 'button_on_short_1'
+        sequence: !input 'button_on_short_1'
 
       # Rij 1 UIT kort
       - conditions:
           - '{{ command == ''off'' }}'
           - '{{ cluster_id == 6 }}'
           - '{{ endpoint_id == 1 }}'
-        sequence:
-          - !input 'button_off_short_1'
+        sequence: !input 'button_off_short_1'
 
       # Rij 1 AAN lang
       - conditions:
@@ -158,8 +156,7 @@ action:
           - '{{ endpoint_id == 1 }}'
           - '{{ trigger.event.data.args[0] == 0 }}'
           - '{{ trigger.event.data.args[1] == 50 }}'
-        sequence:
-          - !input 'button_on_long_1'
+        sequence: !input 'button_on_long_1'
 
       # Rij 1 UIT lang
       - conditions:
@@ -168,8 +165,7 @@ action:
           - '{{ endpoint_id == 1 }}'
           - '{{ trigger.event.data.args[0] == 1 }}'
           - '{{ trigger.event.data.args[1] == 50 }}'
-        sequence:
-          - !input 'button_off_long_1'
+        sequence: !input 'button_off_long_1'
 
   #Acties rij 2
   - choose:
@@ -178,16 +174,14 @@ action:
           - '{{ command == ''on'' }}'
           - '{{ cluster_id == 6 }}'
           - '{{ endpoint_id == 1 }}'
-        sequence:
-          - !input 'button_on_short_2'
+        sequence: !input 'button_on_short_2'
 
       # Rij 2 UIT kort
       - conditions:
           - '{{ command == ''off'' }}'
           - '{{ cluster_id == 6 }}'
           - '{{ endpoint_id == 1 }}'
-        sequence:
-          - !input 'button_off_short_2'
+        sequence: !input 'button_off_short_2'
 
       # Rij 2 AAN lang
       - conditions:
@@ -196,8 +190,7 @@ action:
           - '{{ endpoint_id == 2 }}'
           - '{{ trigger.event.data.args[0] == 0 }}'
           - '{{ trigger.event.data.args[1] == 50 }}'
-        sequence:
-          - !input 'button_on_long_2'
+        sequence: !input 'button_on_long_2'
 
       # Rij 2 UIT lang
       - conditions:
@@ -206,8 +199,7 @@ action:
           - '{{ endpoint_id == 2 }}'
           - '{{ trigger.event.data.args[0] == 1 }}'
           - '{{ trigger.event.data.args[1] == 50 }}'
-        sequence:
-          - !input 'button_off_long_2'
+        sequence: !input 'button_off_long_2'
 
   #Acties rij 3
   - choose:
@@ -216,16 +208,14 @@ action:
           - '{{ command == ''on'' }}'
           - '{{ cluster_id == 6 }}'
           - '{{ endpoint_id == 1 }}'
-        sequence:
-          - !input 'button_on_short_3'
+        sequence: !input 'button_on_short_3'
 
       # Rij 3 UIT kort
       - conditions:
           - '{{ command == ''off'' }}'
           - '{{ cluster_id == 6 }}'
           - '{{ endpoint_id == 1 }}'
-        sequence:
-          - !input 'button_off_short_3'
+        sequence: !input 'button_off_short_3'
 
       # Rij 3 AAN lang
       - conditions:
@@ -234,8 +224,7 @@ action:
           - '{{ endpoint_id == 3 }}'
           - '{{ trigger.event.data.args[0] == 0 }}'
           - '{{ trigger.event.data.args[1] == 50 }}'
-        sequence:
-          - !input 'button_on_long_3'
+        sequence: !input 'button_on_long_3'
 
       # Rij 3 UIT lang
       - conditions:
@@ -244,8 +233,7 @@ action:
           - '{{ endpoint_id == 3 }}'
           - '{{ trigger.event.data.args[0] == 1 }}'
           - '{{ trigger.event.data.args[1] == 50 }}'
-        sequence:
-          - !input 'button_off_long_3'
+        sequence: !input 'button_off_long_3'
 
   #Acties rij 4
   - choose:
@@ -254,16 +242,14 @@ action:
           - '{{ command == ''on'' }}'
           - '{{ cluster_id == 6 }}'
           - '{{ endpoint_id == 1 }}'
-        sequence:
-          - !input 'button_on_short_4'
+        sequence: !input 'button_on_short_4'
 
       # Rij 4 UIT kort
       - conditions:
           - '{{ command == ''off'' }}'
           - '{{ cluster_id == 6 }}'
           - '{{ endpoint_id == 1 }}'
-        sequence:
-          - !input 'button_off_short_4'
+        sequence: !input 'button_off_short_4'
 
       # Rij 4 AAN lang
       - conditions:
@@ -272,8 +258,7 @@ action:
           - '{{ endpoint_id == 4 }}'
           - '{{ trigger.event.data.args[0] == 0 }}'
           - '{{ trigger.event.data.args[1] == 50 }}'
-        sequence:
-          - !input 'button_on_long_4'
+        sequence: !input 'button_on_long_4'
 
       # Rij 4 UIT lang
       - conditions:
@@ -282,5 +267,4 @@ action:
           - '{{ endpoint_id == 4 }}'
           - '{{ trigger.event.data.args[0] == 1 }}'
           - '{{ trigger.event.data.args[1] == 50 }}'
-        sequence:
-          - !input 'button_off_long_4'
+        sequence: !input 'button_off_long_4'
