@@ -193,7 +193,7 @@ action:
       - conditions:
           - "{{ command == 'move_with_on_off' }}"
           - "{{ cluster_id == 8 }}"
-          - "{{ endpoint_id == 1 }}"
+          - "{{ endpoint_id == 2 }}"
           - "{{ trigger.event.data.args[0] == 0 }}"
           - "{{ trigger.event.data.args[1] == 50 }}"
         sequence:
@@ -203,7 +203,7 @@ action:
       - conditions:
           - "{{ command == 'move_with_on_off' }}"
           - "{{ cluster_id == 8 }}"
-          - "{{ endpoint_id == 1 }}"
+          - "{{ endpoint_id == 2 }}"
           - "{{ trigger.event.data.args[0] == 1 }}"
           - "{{ trigger.event.data.args[1] == 50 }}"
         sequence:
@@ -231,7 +231,7 @@ action:
       - conditions:
           - "{{ command == 'move_with_on_off' }}"
           - "{{ cluster_id == 8 }}"
-          - "{{ endpoint_id == 1 }}"
+          - "{{ endpoint_id == 3 }}"
           - "{{ trigger.event.data.args[0] == 0 }}"
           - "{{ trigger.event.data.args[1] == 50 }}"
         sequence:
@@ -241,7 +241,7 @@ action:
       - conditions:
           - "{{ command == 'move_with_on_off' }}"
           - "{{ cluster_id == 8 }}"
-          - "{{ endpoint_id == 1 }}"
+          - "{{ endpoint_id == 3 }}"
           - "{{ trigger.event.data.args[0] == 1 }}"
           - "{{ trigger.event.data.args[1] == 50 }}"
         sequence:
@@ -269,7 +269,7 @@ action:
       - conditions:
           - "{{ command == 'move_with_on_off' }}"
           - "{{ cluster_id == 8 }}"
-          - "{{ endpoint_id == 1 }}"
+          - "{{ endpoint_id == 4 }}"
           - "{{ trigger.event.data.args[0] == 0 }}"
           - "{{ trigger.event.data.args[1] == 50 }}"
         sequence:
@@ -279,7 +279,7 @@ action:
       - conditions:
           - "{{ command == 'move_with_on_off' }}"
           - "{{ cluster_id == 8 }}"
-          - "{{ endpoint_id == 1 }}"
+          - "{{ endpoint_id == 4 }}"
           - "{{ trigger.event.data.args[0] == 1 }}"
           - "{{ trigger.event.data.args[1] == 50 }}"
         sequence:
