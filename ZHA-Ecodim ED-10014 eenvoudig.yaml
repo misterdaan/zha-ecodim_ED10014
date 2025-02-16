@@ -15,16 +15,6 @@ blueprint:
           model: ED-10014
     #          multiple: false
 
-    # lights:
-    #   name: Lights
-    #   description: Lights to control when using default light actions
-    #   default:
-    #     entity_id: none
-    #   selector:
-    #     target:
-    #       entity:
-    #         domain: light
-
     #1e RIJ KNOPPEN
     button_on_short_1:
       name: AAN-knop rij 1 kort indrukken
@@ -50,6 +40,7 @@ blueprint:
       default: []
       selector:
         action: {}
+
     #2e RIJ KNOPPEN
     button_on_short_2:
       name: AAN-knop rij 2 kort indrukken
@@ -75,6 +66,7 @@ blueprint:
       default: []
       selector:
         action: {}
+
     #3e RIJ KNOPPEN
     button_on_short_3:
       name: AAN-knop rij 3 kort indrukken
@@ -100,6 +92,7 @@ blueprint:
       default: []
       selector:
         action: {}
+
     #4e RIJ KNOPPEN
     button_on_short_4:
       name: AAN-knop rij 4 kort indrukken
@@ -142,6 +135,7 @@ action:
 
   #Acties rij 1
   - choose:
+      # Rij 1 AAN kort
       - conditions:
           - "{{ command == 'on' }}"
           - "{{ cluster_id == 6 }}"
@@ -149,6 +143,7 @@ action:
         sequence:
           - !input "button_on_short_1"
 
+      # Rij 1 UIT kort
       - conditions:
           - "{{ command == 'off' }}"
           - "{{ cluster_id == 6 }}"
@@ -156,6 +151,7 @@ action:
         sequence:
           - !input "button_off_short_1"
 
+      # Rij 1 AAN lang
       - conditions:
           - "{{ command == 'move_with_on_off' }}"
           - "{{ cluster_id == 8 }}"
@@ -165,6 +161,7 @@ action:
         sequence:
           - !input "button_on_long_1"
 
+      # Rij 1 UIT lang
       - conditions:
           - "{{ command == 'move_with_on_off' }}"
           - "{{ cluster_id == 8 }}"
@@ -176,6 +173,7 @@ action:
 
   #Acties rij 2
   - choose:
+      # Rij 2 AAN kort
       - conditions:
           - "{{ command == 'on' }}"
           - "{{ cluster_id == 6 }}"
@@ -183,6 +181,7 @@ action:
         sequence:
           - !input "button_on_short_2"
 
+      # Rij 2 UIT kort
       - conditions:
           - "{{ command == 'off' }}"
           - "{{ cluster_id == 6 }}"
@@ -190,6 +189,7 @@ action:
         sequence:
           - !input "button_off_short_2"
 
+      # Rij 2 AAN lang
       - conditions:
           - "{{ command == 'move_with_on_off' }}"
           - "{{ cluster_id == 8 }}"
@@ -199,6 +199,7 @@ action:
         sequence:
           - !input "button_on_long_2"
 
+      # Rij 2 UIT lang
       - conditions:
           - "{{ command == 'move_with_on_off' }}"
           - "{{ cluster_id == 8 }}"
@@ -210,6 +211,7 @@ action:
 
   #Acties rij 3
   - choose:
+      # Rij 3 AAN kort
       - conditions:
           - "{{ command == 'on' }}"
           - "{{ cluster_id == 6 }}"
@@ -217,6 +219,7 @@ action:
         sequence:
           - !input "button_on_short_3"
 
+      # Rij 3 UIT kort
       - conditions:
           - "{{ command == 'off' }}"
           - "{{ cluster_id == 6 }}"
@@ -224,6 +227,7 @@ action:
         sequence:
           - !input "button_off_short_3"
 
+      # Rij 3 AAN lang
       - conditions:
           - "{{ command == 'move_with_on_off' }}"
           - "{{ cluster_id == 8 }}"
@@ -233,6 +237,7 @@ action:
         sequence:
           - !input "button_on_long_3"
 
+      # Rij 3 UIT lang
       - conditions:
           - "{{ command == 'move_with_on_off' }}"
           - "{{ cluster_id == 8 }}"
@@ -244,6 +249,7 @@ action:
 
   #Acties rij 4
   - choose:
+      # Rij 4 AAN kort
       - conditions:
           - "{{ command == 'on' }}"
           - "{{ cluster_id == 6 }}"
@@ -251,6 +257,7 @@ action:
         sequence:
           - !input "button_on_short_4"
 
+      # Rij 4 UIT kort
       - conditions:
           - "{{ command == 'off' }}"
           - "{{ cluster_id == 6 }}"
@@ -258,6 +265,7 @@ action:
         sequence:
           - !input "button_off_short_4"
 
+      # Rij 4 AAN lang
       - conditions:
           - "{{ command == 'move_with_on_off' }}"
           - "{{ cluster_id == 8 }}"
@@ -267,6 +275,7 @@ action:
         sequence:
           - !input "button_on_long_4"
 
+      # Rij 4 UIT lang
       - conditions:
           - "{{ command == 'move_with_on_off' }}"
           - "{{ cluster_id == 8 }}"
