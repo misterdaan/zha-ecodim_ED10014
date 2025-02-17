@@ -35,7 +35,7 @@ blueprint:
       selector:
         action: {}
     button_off_long_1:
-      name: UIT-knop rij 1 kort indrukken
+      name: UIT-knop rij 1 lang indrukken
       description: Actie bij het lang indrukken van de UIT-knop op rij 1
       default: []
       selector:
