@@ -185,7 +185,7 @@ action:
       - conditions:
           - "{{ command == 'on' }}"
           - "{{ cluster_id == 6 }}"
-          - "{{ endpoint_id == 1 }}"
+          - "{{ endpoint_id == 2 }}"
         sequence:
           - choose:
               - conditions: []
@@ -195,7 +195,7 @@ action:
       - conditions:
           - "{{ command == 'off' }}"
           - "{{ cluster_id == 6 }}"
-          - "{{ endpoint_id == 1 }}"
+          - "{{ endpoint_id == 2 }}"
         sequence:
           - choose:
               - conditions: []
@@ -231,7 +231,7 @@ action:
       - conditions:
           - "{{ command == 'on' }}"
           - "{{ cluster_id == 6 }}"
-          - "{{ endpoint_id == 1 }}"
+          - "{{ endpoint_id == 3 }}"
         sequence:
           - choose:
               - conditions: []
@@ -241,7 +241,7 @@ action:
       - conditions:
           - "{{ command == 'off' }}"
           - "{{ cluster_id == 6 }}"
-          - "{{ endpoint_id == 1 }}"
+          - "{{ endpoint_id == 3 }}"
         sequence:
           - choose:
               - conditions: []
@@ -277,7 +277,7 @@ action:
       - conditions:
           - "{{ command == 'on' }}"
           - "{{ cluster_id == 6 }}"
-          - "{{ endpoint_id == 1 }}"
+          - "{{ endpoint_id == 4 }}"
         sequence:
           - choose:
               - conditions: []
@@ -287,7 +287,7 @@ action:
       - conditions:
           - "{{ command == 'off' }}"
           - "{{ cluster_id == 6 }}"
-          - "{{ endpoint_id == 1 }}"
+          - "{{ endpoint_id == 4 }}"
         sequence:
           - choose:
               - conditions: []
